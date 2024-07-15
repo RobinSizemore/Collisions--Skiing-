@@ -2,7 +2,8 @@ extends RigidBody3D
 
 @export var move_speed: float = 2.0
 
-func _physics_process(delta):
+
+func _physics_process(_delta):
 	if Input.is_key_pressed(KEY_LEFT):
 		linear_velocity.x = -move_speed
 	elif Input.is_key_pressed(KEY_RIGHT):
