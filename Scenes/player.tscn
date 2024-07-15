@@ -1,0 +1,62 @@
+[gd_scene load_steps=11 format=3 uid="uid://doa8ocgwrfra5"]
+
+[ext_resource type="Script" path="res://Scenes/player.gd" id="1_54357"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0k2y1"]
+friction = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mc2o5"]
+albedo_color = Color(0.55, 0.271883, 0.143, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hqfr5"]
+material = SubResource("StandardMaterial3D_mc2o5")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ks6vf"]
+size = Vector3(1, 0.1, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vunme"]
+albedo_color = Color(0.176463, 0.666766, 0.901603, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_m0o0u"]
+material = SubResource("StandardMaterial3D_vunme")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qoy0a"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w5fn1"]
+albedo_color = Color(0.91, 0.596353, 0.4823, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_5jpi7"]
+material = SubResource("StandardMaterial3D_w5fn1")
+
+[node name="Player" type="RigidBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_0k2y1")
+script = ExtResource("1_54357")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 2, 2.5)
+
+[node name="Left" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.1, 0, 0, 0, 2, -0.35, -0.45, 0)
+mesh = SubResource("BoxMesh_hqfr5")
+
+[node name="Right" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.1, 0, 0, 0, 2, 0.35, -0.45, 0)
+mesh = SubResource("BoxMesh_hqfr5")
+
+[node name="SkiCollider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.45, 0)
+shape = SubResource("BoxShape3D_ks6vf")
+
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0.316049, 0)
+mesh = SubResource("CapsuleMesh_m0o0u")
+skeleton = NodePath("")
+
+[node name="BodyCollider" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0.316049, 0)
+shape = SubResource("CapsuleShape3D_qoy0a")
+
+[node name="Head" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.18259, 0)
+mesh = SubResource("SphereMesh_5jpi7")
+skeleton = NodePath("")

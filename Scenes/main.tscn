@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4rtbq2l0lfr5"]
+
+[ext_resource type="PackedScene" uid="uid://doa8ocgwrfra5" path="res://Scenes/player.tscn" id="1_bhto8"]
+[ext_resource type="PackedScene" uid="uid://bw44ffs4cvik1" path="res://Scenes/ski_slope.tscn" id="2_6wyp8"]
+
+[node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, 0.372132, -0.333942, 0, 0.667885, 0.744265, 0.5, -0.644552, 0.578405, 0, 14.8998, 2.18214)
+shadow_enabled = true
+
+[node name="SkiSlope" parent="." instance=ExtResource("2_6wyp8")]
+transform = Transform3D(12, 0, 0, 0, 0.469846, 85.505, 0, -0.17101, 234.923, 0, -35, -95)
+
+[node name="Player" parent="." instance=ExtResource("1_bhto8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09305, 0)

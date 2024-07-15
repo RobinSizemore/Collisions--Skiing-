@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bw44ffs4cvik1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7tmlt"]
+metallic = 1.0
+metallic_specular = 0.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_l04a4"]
+material = SubResource("StandardMaterial3D_7tmlt")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oqpd1"]
+
+[node name="SkiSlope" type="StaticBody3D"]
+transform = Transform3D(12, 0, 0, 0, 0.469846, 85.505, 0, -0.17101, 234.923, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_l04a4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_oqpd1")
